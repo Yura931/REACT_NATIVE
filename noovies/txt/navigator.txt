@@ -1,0 +1,45 @@
+stack Navigator
+: React Navigation에 있는 것, Javascript로 구현, 익숙한 ios나 안드로이드의 모습을 가지고 있음, 오롯이 javascript로만 구현되어있음
+: 각 platform의 navigation을 사용하지 않는다는 것
+: native로 구현된 것보다 성능이 좋지 않을 수 있음
+
+native stack navigator
+: native API를 이용해 구현된 것, ios의 UINavigationController와 안드로이드의 Fragment를 사용
+: createNativeStackNavigator를 사용하여 navigator를 만들면 native로 만든 일반적인 어플리케이션과 완전히 같은 방식으로 작동하고, 퍼포먼스도 똑같을 것이라 설명
+: 커스텀 할 수 있는 영역이 약간 줄어듬 - ios와 안드로이드의 navigator를 사용하는 것이기 때문 
+
+명령어
+npm install @react-navigation/native-stack
+
+Stack Navigator 만들어보기
+
+: 만들기 전 스크린사이의 이동을 할 줄 알아야 함
+: Navigation Prop(속성)을 이해할 필요가 있음
+: 모든 Screen Navigator는 Stack Navigator와 Tap Navigator를 포함해서 또한 Component도, Navigation Prop이 무료로 제공 됨
+
+- Navigation Prop
+: navigate, reset, goBack, 기타 등등등의 기능 / 아주 유용 
+: navigate = screen이동 시켜주는 옵션, screen의 name속성 사용
+
+- screens에 있지 않을 때 Navigation에 액세스 할 수 있는 방법
+: 스크린이 아닌 Component에서 Navigation에 액세스할 필요도 있을 수 있기 때문
+
+Navigator의 screenOptions와 screen의 options로 네비게이션 수정, 설정 가능
+
+- ios에만 적용되는 듯 하다 ..
+presentation
+animation
+
+하나의 Navigator가 두 개의 다른 Navigator를 렌더링 중 Navigator 사이를 이동하는 방법
+Tab Navigation, Stack Navigation 결합하기 두가지 방법
+1. Tabs Navigation 렌더링
+: screen component속성에 다른 Navigation을 렌더링
+
+2. Tabs Navigation안에 스크린 만들기 / Stack Navigation을 렌더링 해주는 것 
+: 특정 스크린에서 다른 네비게이션의 헤더나 탭을 숨기고 싶을 수 있음
+= Root Navigation 생성 -> Root Navigation 내에 Tab Navigation, Stack Navigation 생성 
+-> onPress = {() => navigate("Stack", {screen:"Three"})} / onPress 이벤트 동작 시 navigate 속성에 Navigation이름과, screen이름을 함께 명시 -> 서로 다른 Navigation간의 이동이 가능
+
+
+
+
