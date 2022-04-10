@@ -10,6 +10,8 @@ import { Image, useColorScheme } from 'react-native';
 import Root from './navigation/Root';
 import Tabs from './navigation/Tabs';
 import Stack from './navigation/Stack';
+import { ThemeProvider } from 'styled-components';
+import {lightTheme, darkTheme} from './styled';
 
 const loadFonts = (fonts) => fonts.map( (font) => Font.loadAsync(font)); // 여러개의 Font.loadAsync(font)로 이루어진 배열
 const loadImages = (images) => images.map( (image) => { // Image.prefetch(image)나 Asset.loadAsync(image)로 이루어진 배열을 받음
@@ -75,9 +77,11 @@ export default function App() {
   // navigation의 theme을 사용해 다크모드, 라이트모드 쉽게 적용할 수 있음
 
   return (
-    <NavigationContainer theme={ isDark ? DarkTheme : DefaultTheme }>
-      <Root />
-    </NavigationContainer>
+    <ThemeProvider theme={isDark ? darkTheme : lightTheme }>
+      <NavigationContainer>
+        <Root />
+      </NavigationContainer>
+    </ThemeProvider>
   );
 }
 

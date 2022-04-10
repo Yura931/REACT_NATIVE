@@ -1,0 +1,18 @@
+# 앱에서 어떻게 스타일을 줄 수 있는지
+Components에 스타일을 주고 싶다면 Javascript Object를 써야 함 / ex) {flex: 1, justifyContent: "ceneter"}
+많은 Components가 있고 이 Components가 많은 스타일이 있다면 코드가 좋아 보이지는 않을 것이다, React.js 코드와 JavaScript Object notation을 결합하기 때문에
+-> React Native 팀이 Stylesheet을 만듦 -> 이것 조차 아직 JavaScript 우리는 이미 CSS 코드에 익숙해져 있음 -> 이 문제를 해결하기위해 우리는 Styled Components를 사용
+
+설치
+npm i styled-components
+
+import
+import styled from 'styled-components/native';
+
+styled-components는 브라우저에서도 작동 됨
+우리는 브라우저를 사용하지 않기 때문에 /native를 넣어주어야 함
+
+
+# Theme과 Styled Components를 활성화 하는 방법
+Theme = JavaScript Object
+ThemeProvider -> Javascript Object를 Props로 받음

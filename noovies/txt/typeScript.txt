@@ -1,0 +1,74 @@
+# TypeScript
+reactnative.dev/docs/Typescript
+Addking TypeScript to an Existing Project
+
+npm install -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer
+yarn add -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer
+
+설치 후 tsconfig.json 파일 생성
+{
+    "compilerOptions": {
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "isolatedModules": true,
+      "jsx": "react-native",
+      "lib": ["es2017"],
+      "moduleResolution": "node",
+      "noEmit": true,
+      "strict": true,
+      "target": "esnext"
+    },
+    "exclude": [
+      "node_modules",
+      "babel.config.js",
+      "metro.config.js",
+      "jest.config.js"
+    ]
+  }
+복붙
+
+index.js 파일 제외 tsx파일로 변경해주어도 됨
+코드는 JavaScript가 컴파일, TypeScript는 도와주는 것
+typeScript는 type checking 목적으로 사용 됨
+변환은 Babel에 의해 이루어짐
+
+때때로 Node.js 나 React에서 TypeScript로 작업할 때 에러가 발생하면 TypeScript가 코드를 컴파일링하기 때문에 에러가 있으면 TypeScript가 컴파일 하지 못 함
+React Native 경우네느 TypeScript는 그냥 도와주는 역할 에러를 무시해도 앱이 실행 됨
+
+# TypeScript로 styled-components 셋업하는 방법
+styled-components 에러 해결
+: styled-components.com/docs/api#typescript
+installnpm install --save @types/styled-components @types/styled-components-react-native
+
+tsconfig.json
+
+Theme의 properties에 대한 자동완성기능 - Theme를 사용하고 있다면 추천(Theme 사용 추천!)
+Declarations 파일 생성
+
+styled.d.ts 파일 생성
+// import original module declarations
+import 'styled-components';
+
+// and extend them!
+declare module 'styled-components' {
+  export interface DefaultTheme {
+    borderRadius: string;
+
+    colors: {
+      main: string;
+      secondary: string;
+    };
+  }
+}
+복붙
+
+Themes 자동완성 사용 방법
+styled.js 파일 안의 Theme 값 입력 후 declaration 파일에 property 이름과 type 작성
+
+# React Navigation에서 TypeScript 사용
+Navigation Prop - 모든 스크린이 기본으로 가지고 있음
+Type checking screens 어떤 종류의 스크린을 가지고 있는가에 따라 이미 많은 Types를 제공하고 있음 
+
+React.FC<P = {}>
+proprs를 지정할 때 사용

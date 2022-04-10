@@ -1,0 +1,45 @@
+# 영화 앱 만들어보기
+데이터 제공 -> themoviedb.org 웹 사이트
+
+join TMDB 계정 생성
+profile 수정 -> API키 생성
+
+Movies 스크린 explanation의 구조
+1. 현재 영화관에서 상영중인 영화 /movie/now_playing
+2. 개봉 예정 영화 /movie/upcoming
+3. Trending  /trending/{media_type}/{time_window}
+    media_type : all, movie, tv, person
+    time_window : day, week
+
+ScrollView, fetch 사용
+react query 
+
+
+# Movies 화면
+자동 스와이프
+reactnative.directory/ -> swiper 검색
+react-native-web-swiper 선택 (android, Expo Go, IOS, Web 모두 사용 가능)
+$ npm i react-native-web-swiper --save
+
+Dimensions : 화면 사이즈 알 수 있음
+themoviedb사이트에 now_playing api 요청
+
+loding...
+react-native -> activity indicator import 
+
+Tab Navigation은 SceneContainerStyle을 가지고 있음, 모든 화면을 담고 있는 콘테이너
+
+# BlurView 사용
+뒤에 있는 이미지를 흐릿하게 만들어 줌
+install : expo install expo-blur - mac OS 사용시 npx pod-install ios 실행해야 함
+이미지에 흐림효과를 주고싶다면 이미지가 blur view 바깥에 있어야 함
+흐림효과를 주고싶지 않다면 이미지 않에 text 넣어주어야 함
+
+intensity : blur 강도 조절
+
+
+// absolute component가 공간을 가득 채우는 패턴 
+- react native의 StyleSheet 사용 : absoluteFill 이라는 constant를 가지고 있음
+- {StyleSheet.absoluteFill} => {{ width: "100%", height:"100%", position: "absolute" }} 같은 style 적용시켜 줌
+
+// npm run ios -> native요소에 접근하는 것을 새로 설치했을 때 해야하는 일, 어플 build
